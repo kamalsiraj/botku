@@ -67,6 +67,18 @@ async def duck(ctx):
     image_url = get_duck_image_url()
     await ctx.send(image_url)
 
+def get_fox_image_url():    
+    url1 = 'https://randomfox.ca/floof/'
+    res = requests.get(url1)
+    data = res.json()
+    return data['image']
+
+@bot.command('fox')
+async def fox(ctx):
+    '''Setelah kita memanggil perintah rubah (fox), program akan memanggil fungsi get_fox_image_url'''
+    image_url1 = get_fox_image_url()
+    await ctx.send(image_url1)
+
 @bot.command()
 async def jenis_sampah(ctx, item:str):
     if item.lower() in sampah:
